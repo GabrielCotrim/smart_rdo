@@ -1,0 +1,1 @@
+String banner = "assets/banner/banner.jpg";
