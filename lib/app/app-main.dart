@@ -35,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             padding: EdgeInsets.only(
               top: 25.0,
+
               left: 10.0,
               right: 10.0,
             ),
