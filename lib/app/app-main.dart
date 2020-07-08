@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(
@@ -54,17 +54,34 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 8.0),
-                        child: Text(
-                          "Terça feira 25, Dez",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: 1.0,
-                            fontSize: 20.0,
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(left: 8.0),
+                            child: Text(
+                              "Julho",
+                              style: TextStyle(
+                                color: Color.fromRGBO(248, 248, 248, 60.0),
+                                fontWeight: FontWeight.w200,
+                                letterSpacing: 1.0,
+                                fontSize: 14.0,
+                              ),
+                            ),
                           ),
-                        ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 8.0),
+                            child: Text(
+                              "Terça-feira 25",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1.0,
+                                fontSize: 20.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                        crossAxisAlignment: CrossAxisAlignment.start,
                       ),
                     ),
                     IconButton(
@@ -108,6 +125,34 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.only(left: 15.0, top: 15.0, bottom: 10.0,),
+                child: Text(
+                  "Hoje",
+                  style: TextStyle(
+                    color: Colors.black54,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.0,
+                    fontSize: 20.0,
+                  ),
+                ),
+              ),
+              Card(
+                elevation: 2.0,
+                child: Container(
+                  width: double.maxFinite,
+                  height: 55,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -129,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
             margin: EdgeInsets.only(top: 4.0),
             decoration: BoxDecoration(
               color:
-                  opacity ? Color.fromRGBO(248, 248, 248, 85.0) : Colors.white,
+                  opacity ? Color.fromRGBO(248, 248, 248, 95.0) : Colors.white,
               borderRadius: BorderRadius.circular(10.0),
             ),
             child: rowActivities(day),
