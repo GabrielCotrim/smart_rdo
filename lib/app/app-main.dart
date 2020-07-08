@@ -26,6 +26,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final List<String> list = ["test1","test2"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Padding(
                         padding: EdgeInsets.only(left: 8.0),
                         child: Text(
-                          "Terça feira 25, Dez",
+                          "Terça feira 29, Dez",
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
@@ -108,6 +109,59 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          Padding(padding: EdgeInsets.only(top: 4.0)),
+          ListView(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            padding: EdgeInsets.all(8.0),
+            children: <Widget>[
+              Card(
+                color: Colors.white,
+                elevation: 8.0,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.work),
+                      title: Text('Varrição da estrutura'),
+                      subtitle: Text('Unidade: Cubatão - Sp'),
+                      onTap: (){},
+                    )
+                  ],
+                ),
+              ),
+              Card(
+                color: Colors.white,
+                elevation: 8.0,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.work),
+                      title: Text('Sucção de água do silo'),
+                      subtitle: Text('Unidade: Santos - Sp'),
+                      onTap: (){},
+                    )
+                  ],
+                ),
+              ),
+              Card(
+                color: Colors.white,
+                elevation: 8.0,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.work),
+                      title: Text('Limpeza do silo 2'),
+                      subtitle: Text('Unidade: Guarujá - Sp'),
+                      onTap: (){},
+                    )
+                  ],
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
