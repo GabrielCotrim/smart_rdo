@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(
@@ -54,24 +54,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   children: <Widget>[
                     Expanded(
-                      child: Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.only(left: 8.0),
-                            child: Text(
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 8.0,),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
                               "Julho",
                               style: TextStyle(
-                                color: Color.fromRGBO(248, 248, 248, 60.0),
+                                color: Color.fromRGBO(248, 248, 248, 50.0),
                                 fontWeight: FontWeight.w200,
                                 letterSpacing: 1.0,
                                 fontSize: 14.0,
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 8.0),
-                            child: Text(
-                              "Terça-feira 25",
+                            Text(
+                              "Terça-feira",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500,
@@ -79,9 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 fontSize: 20.0,
                               ),
                             ),
-                          ),
-                        ],
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                          ],
+                        ),
                       ),
                     ),
                     IconButton(
@@ -102,17 +99,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    columnActivities('D', '23'),
-                    columnActivities('S', '24'),
-                    columnActivities('T', '25', opacity: false),
-                    columnActivities('Q', '26'),
-                    columnActivities('Q', '27'),
-                    columnActivities('S', '28'),
-                    columnActivities('S', '29'),
-                  ],
+                Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      columnActivities('D', '23'),
+                      columnActivities('S', '24'),
+                      columnActivities('T', '25', opacity: false),
+                      columnActivities('Q', '26'),
+                      columnActivities('Q', '27'),
+                      columnActivities('S', '28'),
+                      columnActivities('S', '29'),
+                    ],
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 8.0),
@@ -125,34 +125,59 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Padding(padding: EdgeInsets.only(top: 4.0)),
+          ListView(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            padding: EdgeInsets.all(8.0),
             children: <Widget>[
-              Padding(
-                padding: EdgeInsets.only(left: 15.0, top: 15.0, bottom: 10.0,),
-                child: Text(
-                  "Hoje",
-                  style: TextStyle(
-                    color: Colors.black54,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.0,
-                    fontSize: 20.0,
-                  ),
+              Card(
+                color: Colors.white,
+                elevation: 8.0,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.work),
+                      title: Text('Varrição da estrutura'),
+                      subtitle: Text('Unidade: Cubatão - Sp'),
+                      onTap: (){},
+                    )
+                  ],
                 ),
               ),
               Card(
-                elevation: 2.0,
-                child: Container(
-                  width: double.maxFinite,
-                  height: 55,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+                color: Colors.white,
+                elevation: 8.0,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.work),
+                      title: Text('Sucção de água do silo'),
+                      subtitle: Text('Unidade: Santos - Sp'),
+                      onTap: (){},
+                    )
+                  ],
+                ),
+              ),
+              Card(
+                color: Colors.white,
+                elevation: 8.0,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.work),
+                      title: Text('Limpeza do silo 2'),
+                      subtitle: Text('Unidade: Guarujá - Sp'),
+                      onTap: (){},
+                    )
+                  ],
                 ),
               ),
             ],
-          ),
+          )
         ],
       ),
     );
@@ -174,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
             margin: EdgeInsets.only(top: 4.0),
             decoration: BoxDecoration(
               color:
-                  opacity ? Color.fromRGBO(248, 248, 248, 95.0) : Colors.white,
+                  opacity ? Color.fromRGBO(248, 248, 248, 85.0) : Colors.white,
               borderRadius: BorderRadius.circular(10.0),
             ),
             child: rowActivities(day),
