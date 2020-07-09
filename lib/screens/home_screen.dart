@@ -117,7 +117,7 @@ class Home extends StatelessWidget{
                 children: <Widget>[
                   ListTile(
                     leading: Icon(Icons.work),
-                    title: Text('Varrição da estrutura'),
+                    title: Text('Limpeza mecanizada'),
                     subtitle: Text('Unidade: Cubatão - Sp'),
                     onTap: (){
                       Navigator.push(

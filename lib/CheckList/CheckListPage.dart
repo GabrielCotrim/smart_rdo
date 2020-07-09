@@ -7,6 +7,19 @@ class CheckListPage extends StatefulWidget {
 }
 
 class CheckListPageState extends State<CheckListPage> {
+
+  List<String> _texts = [
+    "CNH, autorização para dirigir e documento do veículo",
+    "Selo de liberação de acesso",
+    "Cinto de segurança para todos os ocupantes do veículo",
+    "Espelhos retrovisores (interno e externo)",
+    "Alarme sonoro e visual de caçamba elevada",
+    "Limpador / lavador de para-brisas",
+    "Funcionamento do paínel",
+    "Sinal sonoro de ré acoplado ao sistema de câmbio de marchas"
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +37,39 @@ class CheckListPageState extends State<CheckListPage> {
         ),
         centerTitle: true,
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(top: 30),
-            child: CheckboxList(),
+            child: CheckboxList(texto: "CNH, autorização para dirigir e documento do veículo"),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 30),
+            child: CheckboxList(texto: "Selo de liberação de acesso"),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 30),
+            child: CheckboxList(texto: "Cinto de segurança para todos os ocupantes do veículo"),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 30),
+            child: CheckboxList(texto: "Espelhos retrovisores (interno e externo)"),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 30),
+            child: CheckboxList(texto: "Alarme sonoro e visual de caçamba elevada"),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 30),
+            child: CheckboxList(texto: "Limpador / lavador de para-brisas"),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 30),
+            child: CheckboxList(texto: "Funcionamento do paínel"),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 30),
+            child: CheckboxList(texto: "Sinal sonoro de ré acoplado ao sistema de câmbio de marchas"),
           ),
         ],
       ),
@@ -65,21 +106,26 @@ class LabeledCheckbox extends StatelessWidget {
                 shrinkWrap: true,
                 children: <Widget>[
                   Card(
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        Expanded(
-                          child: Text(
-                            texto,
-                            style: TextStyle(fontSize: 20),
+                    elevation: 7,
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(
+                              texto,
+                              style: TextStyle(fontSize: 20),
+                            ),
                           ),
-                        ),
-                        Checkbox(
-                            value: valor,
-                            onChanged: (bool novoValor) {
-                              onChanged(novoValor);
-                            }),
-                      ],
+                          Checkbox(
+                              value: valor,
+                              onChanged: (bool novoValor) {
+                                onChanged(novoValor);
+                              }),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -93,7 +139,9 @@ class LabeledCheckbox extends StatelessWidget {
 }
 
 class CheckboxList extends StatefulWidget {
-  CheckboxList({Key key}) : super(key: key);
+  final String texto;
+
+  const CheckboxList({Key key, this.texto}) : super(key: key);
 
   @override
   _CheckboxListState createState() => _CheckboxListState();
@@ -105,7 +153,7 @@ class _CheckboxListState extends State<CheckboxList> {
   @override
   Widget build(BuildContext context) {
     return LabeledCheckbox(
-      texto: 'Cotrim esta dentro do lixo',
+      texto: widget.texto,
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       valor: _isSelected,
       onChanged: (bool newValue) {
