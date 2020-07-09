@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:smart_rdo/CheckList/CheckListPage.dart';
 import 'package:smart_rdo/assets.dart';
 
 import 'app_theme.dart';
@@ -155,7 +156,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       leading: Icon(Icons.work),
                       title: Text('Limpeza do silo 2'),
                       subtitle: Text('Unidade: Guarujá - Sp'),
-                      onTap: (){},
+                      onTap: (){
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => CheckListPage()));
+                      },
                     )
                   ],
                 ),
