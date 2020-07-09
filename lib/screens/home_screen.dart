@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_rdo/CheckList/CheckListPage.dart';
 
 import '../assets.dart';
 
@@ -118,7 +119,13 @@ class Home extends StatelessWidget{
                     leading: Icon(Icons.work),
                     title: Text('Varrição da estrutura'),
                     subtitle: Text('Unidade: Cubatão - Sp'),
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CheckListPage()),
+                      );
+                    },
                   )
                 ],
               ),
