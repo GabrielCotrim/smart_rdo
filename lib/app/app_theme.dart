@@ -37,6 +37,24 @@ class AppTheme {
     fontFamily: 'Roboto',
   );
 
+  static final ThemeData datePickerTheme = ThemeData(
+    colorScheme: ColorScheme(
+      primary: const Color(0xff5676ef),
+      primaryVariant: const Color(0xff1b46e9),
+      secondary: const Color(0xff755de5),
+      secondaryVariant: const Color(0xff4626dc),
+      surface: Colors.white,
+      background: Colors.white,
+      error: const Color(0xffb00020),
+      onPrimary: Colors.white,
+      onSecondary: Colors.black,
+      onSurface: Colors.black,
+      onBackground: Colors.black,
+      onError: Colors.white,
+      brightness: Brightness.light,
+    ),
+  );
+
   static final ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: Colors.black,
     appBarTheme: AppBarTheme(
