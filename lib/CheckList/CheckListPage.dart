@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +11,7 @@ class CheckListPage extends StatefulWidget {
 }
 
 class CheckListPageState extends State<CheckListPage> {
+  bool _isButtonDisabled = false;
 
   List<String> _texts = [
     "CNH, autorização para dirigir e documento do veículo",
@@ -20,7 +23,6 @@ class CheckListPageState extends State<CheckListPage> {
     "Funcionamento do paínel",
     "Sinal sonoro de ré acoplado ao sistema de câmbio de marchas"
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,47 +41,74 @@ class CheckListPageState extends State<CheckListPage> {
         ),
         centerTitle: true,
       ),
-      body: ListView(
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            child: CheckboxList(texto: "CNH, autorização para dirigir e documento do veículo"),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            child: CheckboxList(texto: "Selo de liberação de acesso"),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            child: CheckboxList(texto: "Cinto de segurança para todos os ocupantes do veículo"),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            child: CheckboxList(texto: "Espelhos retrovisores (interno e externo)"),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            child: CheckboxList(texto: "Alarme sonoro e visual de caçamba elevada"),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            child: CheckboxList(texto: "Limpador / lavador de para-brisas"),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            child: CheckboxList(texto: "Funcionamento do paínel"),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 30),
-            child: CheckboxList(texto: "Sinal sonoro de ré acoplado ao sistema de câmbio de marchas"),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ListView(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              child: CheckboxList(
+                  texto: "CNH, autorização para dirigir e documento do veículo"),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              child: CheckboxList(texto: "Selo de liberação de acesso"),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              child: CheckboxList(
+                  texto: "Cinto de segurança para todos os ocupantes do veículo"),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              child: CheckboxList(
+                  texto: "Espelhos retrovisores (interno e externo)"),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              child: CheckboxList(
+                  texto: "Alarme sonoro e visual de caçamba elevada"),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              child: CheckboxList(texto: "Limpador / lavador de para-brisas"),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              child: CheckboxList(texto: "Funcionamento do paínel"),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 30),
+              child: CheckboxList(
+                  texto:
+                      "Sinal sonoro de ré acoplado ao sistema de câmbio de marchas"),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Container(
+                  child: RaisedButton(
+                    padding: EdgeInsets.all(15),
+                    color: Colors.white,
+                    elevation: 20,
+                    onPressed: _isButtonDisabled ? null : () {},
+                    child: Text(
+                      'Next',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
 }
-
-
 
 class CheckboxList extends StatefulWidget {
   final String texto;
