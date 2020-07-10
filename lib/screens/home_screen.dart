@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_rdo/CheckList/CheckListPage.dart';
+import 'package:smart_rdo/CheckList/atividade_screen.dart';
 import 'package:smart_rdo/widgets/calendario.dart';
 
 
@@ -31,7 +32,7 @@ class Home extends StatelessWidget{
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CheckListPage()),
+                            builder: (context) => AtividadeScreen()),
                       );
                     },
                   )
