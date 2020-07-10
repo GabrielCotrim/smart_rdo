@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:smart_rdo/app/app_theme.dart';
 
 class DatePicker extends StatefulWidget {
   @override
@@ -29,7 +30,7 @@ class _DatePickerState extends State<DatePicker> {
       lastDate: DateTime(9999),
       builder: (BuildContext context, Widget child) {
         return Theme(
-          data: ThemeData.light(),
+          data: AppTheme.datePickerTheme,
           child: child,
         );
       },
