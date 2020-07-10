@@ -48,7 +48,8 @@ class CheckListPageState extends State<CheckListPage> {
             Container(
               padding: EdgeInsets.only(top: 30),
               child: CheckboxList(
-                  texto: "CNH, autorização para dirigir e documento do veículo"),
+                  texto:
+                      "CNH, autorização para dirigir e documento do veículo"),
             ),
             Container(
               padding: EdgeInsets.only(top: 30),
@@ -57,7 +58,8 @@ class CheckListPageState extends State<CheckListPage> {
             Container(
               padding: EdgeInsets.only(top: 30),
               child: CheckboxList(
-                  texto: "Cinto de segurança para todos os ocupantes do veículo"),
+                  texto:
+                      "Cinto de segurança para todos os ocupantes do veículo"),
             ),
             Container(
               padding: EdgeInsets.only(top: 30),
@@ -94,7 +96,15 @@ class CheckListPageState extends State<CheckListPage> {
                     padding: EdgeInsets.all(15),
                     color: Colors.white,
                     elevation: 20,
-                    onPressed: _isButtonDisabled ? null : () {},
+                    onPressed: _isButtonDisabled
+                        ? null
+                        : () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => /*ViewAtividades()*/),
+                            );
+                          },
                     child: Text(
                       'Next',
                       style: TextStyle(fontSize: 20),
