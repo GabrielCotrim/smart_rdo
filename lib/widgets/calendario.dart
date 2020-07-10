@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../assets.dart';
+import 'package:intl/intl.dart';
+import 'package:smart_rdo/app/app_theme.dart';
 
-class Calendario extends StatefulWidget{
+class Calendario extends StatefulWidget {
+  final DateFormat _dateFormat = DateFormat('dd/MM/yyyy');
 
-  Map<String,List<int>> _mesDias = {
-    'Julho':[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 ],
-  };
   @override
   State<Calendario> createState() => _CalendarioState();
 }
 
-class _CalendarioState extends State<Calendario>{
-
+class _CalendarioState extends State<Calendario> {
+  DateTime _dataSelecionada = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +22,9 @@ class _CalendarioState extends State<Calendario>{
         right: 10.0,
       ),
       decoration: BoxDecoration(
-        color: Color(0xffffe4d4),
-        image: DecorationImage(
-          fit: BoxFit.fill,
-          image: AssetImage(banner),
+        color: Color(0xff5676ef),
+        gradient: LinearGradient(
+          colors: [Color(0xff755de5), Color(0xff5676ef),],
         ),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(10.0),
@@ -39,7 +37,10 @@ class _CalendarioState extends State<Calendario>{
             children: <Widget>[
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(left: 8.0,),
+                  padding: EdgeInsets.only(
+                    left: 8.0,
+                    top: 4.0,
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -65,21 +66,43 @@ class _CalendarioState extends State<Calendario>{
                   ),
                 ),
               ),
-              IconButton(
-                iconSize: 20.0,
-                icon: Icon(
-                  Icons.chevron_left,
-                  color: Colors.white,
+              Card(
+                margin: EdgeInsets.all(2.0),
+                color: Colors.transparent,
+                shadowColor: Colors.transparent,
+                clipBehavior: Clip.antiAlias,
+                shape: CircleBorder(),
+                child: InkWell(
+                  splashColor: Color.fromRGBO(86, 119, 239, 50),
+                  highlightColor: Color.fromRGBO(66, 91, 187, 50),
+                  onTap: () {},
+                  child: Padding(
+                    padding: EdgeInsets.all(6.0),
+                    child: Icon(
+                      Icons.chevron_left,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-                onPressed: () => {},
               ),
-              IconButton(
-                iconSize: 20.0,
-                icon: Icon(
-                  Icons.chevron_right,
-                  color: Colors.white,
+              Card(
+                margin: EdgeInsets.all(2.0),
+                color: Colors.transparent,
+                shadowColor: Colors.transparent,
+                clipBehavior: Clip.antiAlias,
+                shape: CircleBorder(),
+                child: InkWell(
+                  splashColor: Color.fromRGBO(86, 119, 239, 50),
+                  highlightColor: Color.fromRGBO(66, 91, 187, 50),
+                  onTap: () {},
+                  child: Padding(
+                    padding: EdgeInsets.all(6.0),
+                    child: Icon(
+                      Icons.chevron_right,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-                onPressed: () => {},
               ),
             ],
           ),
@@ -99,7 +122,9 @@ class _CalendarioState extends State<Calendario>{
             ),
           ),
           FlatButton(
-            onPressed: () { /*TODO SHOW THE CALENDAR */},
+            onPressed: () {
+              _mostreCalendario();
+            },
             shape: CircleBorder(),
             padding: const EdgeInsets.all(0.0),
             child: Icon(
@@ -110,6 +135,26 @@ class _CalendarioState extends State<Calendario>{
         ],
       ),
     );
+  }
+
+  Future _mostreCalendario(){
+    return showDatePicker(
+      context: context,
+      initialDate: _dataSelecionada,
+      helpText: 'Selecione uma data',
+      firstDate: DateTime(2000),
+      lastDate: DateTime(9999),
+      builder: (BuildContext context, Widget child) {
+        return Theme(
+          data: AppTheme.datePickerTheme,
+          child: child,
+        );
+      },
+    ).then((data) {
+      if (data != null) {
+        setState(() => _dataSelecionada = data);
+      }
+    });
   }
 
   Widget columnActivities(String sigla, String day, {bool opacity = true}) {
@@ -128,7 +173,7 @@ class _CalendarioState extends State<Calendario>{
             margin: EdgeInsets.only(top: 4.0),
             decoration: BoxDecoration(
               color:
-              opacity ? Color.fromRGBO(248, 248, 248, 85.0) : Colors.white,
+                  opacity ? Color.fromRGBO(248, 248, 248, 85.0) : Colors.white,
               borderRadius: BorderRadius.circular(10.0),
             ),
             child: rowActivities(day),
@@ -204,5 +249,4 @@ class _CalendarioState extends State<Calendario>{
       ],
     );
   }
-
 }
