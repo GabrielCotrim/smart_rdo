@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_rdo/CheckList/atividade_screen.dart';
 
 import 'LabeledCheckList.dart';
 
@@ -102,7 +103,7 @@ class CheckListPageState extends State<CheckListPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => /*ViewAtividades()*/),
+                                  builder: (context) => AtividadeScreen()),
                             );
                           },
                     child: Text(

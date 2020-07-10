@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_rdo/screens/date_picker.dart';
+import 'package:smart_rdo/widgets/time_picker.dart';
+import 'package:smart_rdo/widgets/image_picker_custom.dart';
 
 class AtividadeScreen extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class Area {
 }
 
 class AreaItem extends StatelessWidget {
-  const AreaItem(this.area);
+  AreaItem(this.area);
 
   final Area area;
 
@@ -45,13 +46,46 @@ class AreaItem extends StatelessWidget {
       return ListTile(title: Text(root.id.toString()));
 
     return ExpansionTile(
-      key: PageStorageKey<Area>(root),
       title: Text("Area ${root.id} - ${root.nomeResponsavel}"),
       children: <Widget>[
-        Column(
-          children: <Widget>[
-            DatePicker(),
-          ],
+        Padding(
+          padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text('Período de Atuação'),
+              Row(
+                children: <Widget>[
+                  TimePicker(timeInicial: 'Inicial'),
+                  Text(' - '),
+                  TimePicker(timeInicial: 'Final'),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 16),
+              ),
+              Text('Descrição'),
+              TextFormField(
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
+                decoration: InputDecoration(
+                  hintText: 'Descrição resumida do que foi feito na área',
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 16),
+                child: ImagePickerCustom(),
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: RaisedButton.icon(
+                  onPressed: () => {},
+                  icon: Icon(Icons.check),
+                  label: Text('Confirmar'),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );

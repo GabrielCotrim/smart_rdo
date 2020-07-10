@@ -15,10 +15,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: MyHomePage(title: 'Flutter Demo Home Page'),
       localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
       ],
       supportedLocales: [
-        const Locale('pt'),
+        const Locale('pt', 'BR'),
       ],
     );
   }
