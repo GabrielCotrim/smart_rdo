@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_rdo/CheckList/CheckListPage.dart';
+import 'package:smart_rdo/CheckList/checklist_screen.dart';
 import 'package:smart_rdo/widgets/calendario.dart';
 
-import '../CheckList/CheckListPage.dart';
+import '../CheckList/checklist_screen.dart';
 
 
 class Home extends StatelessWidget{

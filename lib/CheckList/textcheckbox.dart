@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LabeledCheckbox extends StatefulWidget {
-  const LabeledCheckbox({
+class textcheckbox extends StatefulWidget {
+  const textcheckbox({
     this.texto,
     this.padding,
     this.valor,
@@ -14,10 +14,10 @@ class LabeledCheckbox extends StatefulWidget {
   final Function onChanged;
 
   @override
-  _LabeledCheckboxState createState() => _LabeledCheckboxState();
+  _textcheckboxState createState() => _textcheckboxState();
 }
 
-class _LabeledCheckboxState extends State<LabeledCheckbox> {
+class _textcheckboxState extends State<textcheckbox> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
