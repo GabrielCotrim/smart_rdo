@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_rdo/CheckList/atividade_screen.dart';
+import 'package:smart_rdo/screens/atividade/atividade_screen.dart';
 
-import 'textcheckbox.dart';
+import '../../textcheckbox.dart';
 
 class CheckListPage extends StatefulWidget {
   @override
@@ -13,17 +13,6 @@ class CheckListPage extends StatefulWidget {
 
 class CheckListPageState extends State<CheckListPage> {
   bool _isButtonDisabled = false;
-
-  List<String> _texts = [
-    "CNH, autorização para dirigir e documento do veículo",
-    "Selo de liberação de acesso",
-    "Cinto de segurança para todos os ocupantes do veículo",
-    "Espelhos retrovisores (interno e externo)",
-    "Alarme sonoro e visual de caçamba elevada",
-    "Limpador / lavador de para-brisas",
-    "Funcionamento do paínel",
-    "Sinal sonoro de ré acoplado ao sistema de câmbio de marchas"
-  ];
 
   @override
   Widget build(BuildContext context) {
