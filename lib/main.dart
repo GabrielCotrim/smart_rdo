@@ -3,7 +3,7 @@ import 'app/app-main.dart';
 
 
 void main() {
-  runApp(MyApp());
+  runApp(RdoApp());
 }
 
 

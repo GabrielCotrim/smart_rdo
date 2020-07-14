@@ -4,5 +4,5 @@ import 'flavor.dart';
 
 void main() {
   ambiente = 'DEV';
-  runApp(MyApp());
+  runApp(RdoApp());
 }

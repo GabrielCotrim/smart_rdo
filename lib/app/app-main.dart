@@ -6,7 +6,7 @@ import 'package:smart_rdo/screens/home_screen.dart';
 
 import 'app_theme.dart';
 
-class MyApp extends StatelessWidget {
+class RdoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
