@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_rdo/CheckList/atividade_screen.dart';
 
-import 'LabeledCheckList.dart';
+import 'textcheckbox.dart';
 
 class CheckListPage extends StatefulWidget {
   @override
@@ -135,7 +135,7 @@ class _CheckboxListState extends State<CheckboxList> {
 
   @override
   Widget build(BuildContext context) {
-    return LabeledCheckbox(
+    return textcheckbox(
       texto: widget.texto,
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       valor: _isSelected,
