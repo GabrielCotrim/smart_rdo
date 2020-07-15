@@ -30,6 +30,7 @@ dependencies:
   flutter_bloc: 5.0.1
   bloc: 5.0.1
   equatable: 1.2.2
+  rxdart: 0.24.1
 
 
   # The following adds the Cupertino Icons font to your application.
