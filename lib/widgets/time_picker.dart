@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_rdo/app/app_theme.dart';
 
 class TimePicker extends StatefulWidget {
   TimePicker({this.timeInicial = ''});
@@ -26,7 +27,7 @@ class _TimePickerState extends State<TimePicker> {
           initialTime: TimeOfDay.now(),
           builder: (context, child) {
             return Theme(
-              data: ThemeData.light(),
+              data: AppTheme.datePickerTheme,
               child: child,
             );
           }).then((time) {

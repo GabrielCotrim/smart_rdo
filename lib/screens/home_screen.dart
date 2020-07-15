@@ -1,78 +1,50 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_rdo/CheckList/checklist_screen.dart';
-import 'package:smart_rdo/widgets/calendario.dart';
+import 'package:flutter/rendering.dart';
+import 'package:smart_rdo/screens/agenda_screen.dart';
 
-import '../CheckList/checklist_screen.dart';
+class HomeScreen extends StatefulWidget {
+  HomeScreen({Key key}) : super(key: key);
 
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
 
-class Home extends StatelessWidget{
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
-        Calendario(),
-        ListView(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          padding: EdgeInsets.all(4.0),
-          children: <Widget>[
-            Card(
-              color: Colors.white,
-              elevation: 8.0,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  ListTile(
-                    leading: Icon(Icons.work),
-                    title: Text('Limpeza mecanizada'),
-                    subtitle: Text('Unidade: Cubatão - Sp'),
-                    onTap: (){
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => CheckListPage()),
-                      );
-                    },
-                  )
-                ],
-              ),
-            ),
-            Card(
-              color: Colors.white,
-              elevation: 8.0,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  ListTile(
-                    leading: Icon(Icons.work),
-                    title: Text('Sucção de água do silo'),
-                    subtitle: Text('Unidade: Santos - Sp'),
-                    onTap: (){},
-                  )
-                ],
-              ),
-            ),
-            Card(
-              color: Colors.white,
-              elevation: 8.0,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  ListTile(
-                    leading: Icon(Icons.work),
-                    title: Text('Limpeza do silo 2'),
-                    subtitle: Text('Unidade: Guarujá - Sp'),
-                    onTap: (){},
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-      ],
+    return Scaffold(
+      body: _pageOptions.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.work),
+            title: Text('Agenda'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            title: Text('Áreas'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Color(0xff5676ef),
+        onTap: _onItemTapped,
+      ),
     );
   }
+
+  List<Widget> _pageOptions = <Widget>[
+    AgendaScreen(),
+    Center(
+      child: Text('Another page'),
+    ),
+  ];
 }
