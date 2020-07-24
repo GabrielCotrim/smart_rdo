@@ -54,6 +54,7 @@ flutter:
 
   assets:
     - assets/banner/banner.jpg
+    - assets/limpezaPng.png
 
   fonts:
     - family: Roboto

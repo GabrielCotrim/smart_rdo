@@ -23,6 +23,9 @@ class _FiscalPageState extends State<FiscalPage> {
         ),
         centerTitle: true,
       ),
+      body: Container(
+        child: Image.asset('assets/limpezaPng.png'),
+      ),
     );
   }
 }

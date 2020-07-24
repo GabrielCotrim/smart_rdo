@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_rdo/screens/fiscal/fiscal_screen.dart';
 import 'package:smart_rdo/widgets/time_picker.dart';
 import 'package:smart_rdo/widgets/image_picker_custom.dart';
 
@@ -79,7 +80,13 @@ class AreaItem extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(bottom: 16),
                 child: RaisedButton.icon(
-                  onPressed: () => {},
+                  onPressed: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FiscalPage()),
+                    )
+                  },
                   icon: Icon(Icons.check),
                   label: Text('Confirmar'),
                 ),
